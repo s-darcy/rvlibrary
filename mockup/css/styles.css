@@ -93,5 +93,22 @@ article {
 }
 aside {
     font-family: 'Roboto', Helvetica, sans-serif;
-
+}
+aside > ul.collectionList {
+  padding: 0;
+  list-style: none;
+}
+aside > ul.collectionList > li {
+  padding-top: 10px;
+}
+aside > ul.collectionList > li > a {
+  font-weight: bold;
+}
+aside > ul.collectionList a:hover {
+  text-decoration: underline;
+}
+.searchResetBtn {
+    height: 36px;
+    border: 1px solid #ccc;
+    margin-left: 2px;
 }
