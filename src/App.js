@@ -47,7 +47,10 @@ class App extends Component {
     event.preventDefault();
     const searchCategory = event.target.text;
     let resources = [...this.state.resources];
-    const searchResults = resources.filter( function(resource) { return resource.collection === searchCategory; });
+    const searchResults = searchCategory !== 'Browse All' ?
+      resources.filter( function(resource) { return resource.collection === searchCategory; }) :
+      resources;
+
     this.setState({
       searchResults,
       searchCategory,
@@ -69,10 +72,7 @@ class App extends Component {
       <div id="container">
         <LogoBar />
         <div className="headerContainer">
-          <header className="row">
-            <div className="column small-12">
-              <h1>The Learning Curve Library</h1>
-            </div>
+          <header className="discoverHeader row">
             <DiscoverSection
               clearSearch={this.handleClearSearch}
               search={this.handleSearchByString}
@@ -80,7 +80,7 @@ class App extends Component {
             />
           </header>
         </div>
-        <div className="row">
+        <div className="contentContainer row">
           <main className="small-12 medium-9 columns">
             { !this.state.showSearch ? (
               <div>
@@ -133,50 +133,52 @@ class App extends Component {
 
           </main>
           <aside className="small-12 medium-3 columns">
+            <h2 className="getInspired">Get Inspired</h2>
             <ul className="collectionList">
-              <li><a href="#" className="collectionGroup">Recommendations</a>
+              <li><a href="/" className="collectionGroup" onClick={this.handleSearchByCategory}>Browse All</a></li>
+              <li><a href="/" className="collectionGroup">Recommendations</a>
                 <ul>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Senior Leadership Team</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>RV Board Members</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Harvard Business Review</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Year of Books</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Bill Gates</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Forbes</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Adam Grant</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Senior Leadership Team</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>RV Board Members</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Harvard Business Review</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Year of Books</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Bill Gates</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Forbes</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Adam Grant</a></li>
                 </ul>
               </li>
-              <li><a href="#" className="collectionGroup">Inspirations</a>
+              <li><a href="/" className="collectionGroup">Inspirations</a>
                 <ul>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Jimi Hendrix</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Einstein</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Malala</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Da Vinci</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Dr. Seuss</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Louisa May Alcott</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Maya Angelou</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Nelson Mandela</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Jimi Hendrix</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Einstein</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Malala</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Da Vinci</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Dr. Seuss</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Louisa May Alcott</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Maya Angelou</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Nelson Mandela</a></li>
                 </ul>
               </li>
-              <li><a href="#" className="collectionGroup">Professional Development</a>
+              <li><a href="/" className="collectionGroup">Professional Development</a>
                 <ul>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Business</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Communication</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Innovation</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Leadership</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Self-awareness</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Productivity</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Business</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Communication</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Innovation</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Leadership</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Self-awareness</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Productivity</a></li>
                 </ul>
               </li>
-              <li><a href="#" className="collectionGroup">Green Eggs &amp; Ham</a>
+              <li><a href="/" className="collectionGroup">Green Eggs &amp; Ham</a>
                 <ul>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>LifeHack</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Culture Fest</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>She Is</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Biography</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Fiction</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Miscellaneous</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Uncategorized</a></li>
-                  <li><a href="#" className="collectionLinks" onClick={this.handleSearchByCategory}>Periodicals</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>LifeHack</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Culture Fest</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>She Is</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Biography</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Fiction</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Miscellaneous</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Uncategorized</a></li>
+                  <li><a href="/" className="collectionLinks" onClick={this.handleSearchByCategory}>Periodicals</a></li>
                 </ul>
               </li>
             </ul>

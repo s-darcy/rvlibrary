@@ -1,4 +1,5 @@
 import React from 'react';
+import OptionsBox from './OptionsBox';
 
 function Review() {
   return (
@@ -9,10 +10,7 @@ function Review() {
       <div className="bookdetails small-4 columns">
         <h3>El Pooch of La Mancha</h3>
         <p>By <span className="author">Alex Nelson</span></p>
-        <div className="optionsBox">
-          <a href="#">Order</a>
-          <a href="#">Review</a>
-        </div>
+        <OptionsBox />
       </div>
       <div className="small-6 columns">
         <span className="rating">
