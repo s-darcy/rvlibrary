@@ -26,6 +26,10 @@ body .welcomeSection p {
 
 }
 
+body {
+  background-color: #F7F7F7;
+}
+
 .logobar {
   background-color: black;
   color: white;
@@ -36,17 +40,20 @@ body .welcomeSection p {
   font-size: 14px;
   position: relative;
   top: 9px;
+  line-height: 17px;
 }
 .username {
   line-height: 37px;
+  font-size: 14px;
 }
 .headerContainer {
-  background: linear-gradient(to right,rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url('/img/curve.jpg') no-repeat;
-  background-position: left center;
+  background: linear-gradient(to right,rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('/img/curve.jpg') no-repeat;
+  background-position: center;
+  background-position-y: 68.5%;
   background-size: cover;
-  padding-top: 40px;
+  padding-top: 70px;
   padding-bottom: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 }
 .identityBox {
   text-align: right;
@@ -57,7 +64,6 @@ body .welcomeSection p {
 .discoverSection {
   overflow: hidden;
 }
-
 .discoverSection h2 {
   font-family: 'Aleobold', serif;
   font-size: 96px;
@@ -66,19 +72,40 @@ body .welcomeSection p {
   line-height: 1;
   top: -10px;
   color: rgba(255, 255, 255, 0.2);
+  margin-left: -19px;
 }
 .discoverBox {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 2px solid black;
   border-left: 1px solid black;
-  -webkit-box-shadow: 10px 10px 5px -8px rgba(128,128,128,0.6);
-  -moz-box-shadow: 10px 10px 5px -8px rgba(128,128,128,0.6);
-  box-shadow: 10px 10px 5px -8px rgba(128,128,128,0.4), -10px 10px 5px -8px rgba(128,128,128,0.4);
-  margin-bottom: 20px;
+  -webkit-box-shadow: 10px 10px 5px -8px rgba(128,128,128,0.8);
+  -moz-box-shadow: 10px 10px 5px -8px rgba(128,128,128,0.8);
+  box-shadow: 10px 10px 5px -8px rgba(128,128,128,0.7), -10px 10px 5px -8px rgba(128,128,128,0.7);
+  margin-bottom: 70px;
   overflow: hidden;
-  padding: 50px 20px;
+  padding: 60px 150px 40px;
   position: relative;
+}
+#searchInput::placeholder {
+  font-size: 17px;
+  color: #878787;
+  margin-right: 50px;
+  font-family: 'aleobold';
+}
+.magnifyingGlass {
+  padding: 16px;
+}
+label.magnifyingGlassLabel {
+  height: 58px;
+  width: 58px;
+  background: linear-gradient(#4BB8E6,#2362AE);
+}
+input.searchField {
+  height: 58px;
+  padding-left: 25px;
+}
+.aside--column {
+  margin-top: -40px;
 }
 h1, h2 {
   font-family: 'aleobold', sans-serif;
@@ -91,16 +118,17 @@ article {
   background-color: #FAFAFA;
 }
 .row article.row {
-  -webkit-box-shadow: 10px 10px 5px -8px rgba(128,128,128,0.6);
+  /* -webkit-box-shadow: 10px 10px 5px -8px rgba(128,128,128,0.6);
   -moz-box-shadow: 10px 10px 5px -8px rgba(128,128,128,0.6);
-  box-shadow: 10px 10px 5px -8px rgba(128,128,128,0.4), -10px 10px 5px -8px rgba(128,128,128,0.4);
+  box-shadow: 10px 10px 5px -8px rgba(128,128,128,0.4), -10px 10px 5px -8px rgba(128,128,128,0.4); */
   margin-bottom: 20px;
-
 }
 .discoverBox form {
   margin-bottom: 10px;
 }
-
+.reviews.columns {
+  padding: 0px;
+}
 .recommendations div article {
   width: 32%;
 }
@@ -108,11 +136,86 @@ article {
   margin-right: 2%;
   margin-left: 2%;
 }
+.recommendation__book-cards,
+.review__book-cards {
+  margin-right: 20px;
+  margin-bottom: 40px;
+  margin-top: -25px;
+  width: 340px;
+  height: 340px;
+  background-color: #FFFFFF;
+}
+.recommendation__book-cards--card,
+.review__book-cards--card { 
+  height: 340px;
+  padding: 20px;
+}
+.recommendation__book-cards--title,
+.review__book-cards--title {
+  color: #666666;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
+}
+.recommendation__book-cards--author,
+.review__book-cards--author {
+  color: #666666;
+  font-size: 12px;
+  margin-bottom: 0px;
+}
+.recommendation__book-cards--image,
+.review__book-cards--image {
+  margin-bottom: 20px;
+}
+.recommendation__book-cards--text,
+.review__book-cards--text {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+.button {
+  padding: 2px 11px; 
+  border-radius: 10px;
+  width: 110px;
+  height: 30px;
+  margin-top: -20px;
+  margin-right: 10px;
+}
+.button span {
+  line-height: 18px;
+}
+.button.primary {
+  background: linear-gradient(#4BB8E6,#2362AE);
+  font-size: 14px;
+  width: 110px;
+}
+.plusSign {
+  font-size: 24px;
+  margin-right: 15px;
+}
+.button.secondary {
+  border: 1px solid #2A70B7;
+  background-color: transparent;
+  padding-top: 3px;
+  width: 110px;
+}
+.button.secondary span {
+  color: #286EB6;
+  font-size: 14px;
+}
 .welcomeSection.columns {
   padding-left: 0;
+  margin-bottom: 60px;
 }
-.subheader {
-  margin: 0 -0.9375rem 15px;
+.subheader__h2 {
+  margin: 0 -0.9375rem 15px -20px;
+  font-size: 46px;
+  line-height: 55px;
+  color: #BABABA;
+}
+.welcome {
+  color: #666666;
+  font-size: 22px;
+  margin-left: -30px;
 }
 .reviewAuthor {
   font-size: 14px;
@@ -123,8 +226,8 @@ article {
 .rating {
   color: #e34949;
 }
-.bookcontainer {
-  padding: 0;
+.recommendation__book-cards--card {
+  margin-right: 21px;
 }
 .optionsBox a {
   display: inline-block;
@@ -156,12 +259,17 @@ aside ul ul {
 }
 aside > ul.collectionList > li {
   padding-top: 10px;
+  font-weight: bold;
 }
 aside > ul.collectionList > li > a {
   font-size: 20px;
+  font-weight: 300;
 }
 aside > ul.collectionList > li ul a {
   font-size: 15px;
+  line-height: 28px;
+  font-weight: 300;
+  font-family: 'aleoregular';
 }
 aside > ul.collectionList a:hover {
   text-decoration: underline;

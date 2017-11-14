@@ -89,22 +89,23 @@ class App extends Component {
                   <p>Welcome to the very much still in development Curve Library software. Over the next few months, the Road to Hire and ITA students will be working to make this much more full featured. In the meantime, you may use the categories on the right to search our collections or you can search for individual items using the search bar above.</p>
                 </section>
                 <section className="recommendations columns">
-                  <h2 className="subheader"><small>Recommended for you</small></h2>
-                    { this.state.recommendedBooks.map(function(resource, i) {
-                      return (
-                        <Recommendation
-                          title={resource.title}
-                          author={resource.creator}
-                          key={`recommendResult${i}`}
-                        />
-                      );
+                  <h2 className="subheader"><small className="subheader__h2">Recommended for You</small></h2>
+                    <div className="row">
+                      { this.state.recommendedBooks.map(function(resource, i) {
+                        return (
+                          <Recommendation
+                            title={resource.title}
+                            author={resource.creator}
+                            key={`recommendResult${i}`}
+                          />
+                        );
 
-                    }, this)
-                  }
-
+                      }, this)
+                    }
+                  </div>  
                 </section>
                 <section className="reviews columns">
-                  <h2 className="subheader"><small>Recent Reviews</small></h2>
+                  <h2 className="subheader"><small className="subheader__h2">Recent Reviews</small></h2>
                     <Review />
                     <Review />
                     <Review />
@@ -116,23 +117,24 @@ class App extends Component {
                 <section className="searchResults columns">
                   <h2 className="subheader"><small>Search Results</small> <button className="button tiny" onClick={this.handleClearSearch}>Reset</button></h2>
                     <p className="searchTerm">Your search for "{this.state.searchCategory.length ? this.state.searchCategory : ( this.state.searchTerm )}" resulted in {this.state.searchResults.length} results.</p>
-                    { this.state.searchResults.map(function(resource, i) {
-                      return (
-                        <Recommendation
-                          title={resource.title}
-                          author={resource.creator}
-                          key={`searchResult${i}`}
-                        />
-                      );
+                    <div className="row">
+                      { this.state.searchResults.map(function(resource, i) {
+                        return (
+                          <Recommendation
+                            title={resource.title}
+                            author={resource.creator}
+                            key={`searchResult${i}`}
+                          />
+                        );
 
-                    }, this)
-                  }
+                      }, this)
+                    }
+                  </div>
                 </section>
               )
             }
-
           </main>
-          <aside className="small-12 medium-3 columns">
+          <aside className="small-12 medium-3 columns  aside--column">
             <h2 className="getInspired">Get Inspired</h2>
             <ul className="collectionList">
               <li><a href="/" className="collectionGroup" onClick={this.handleSearchByCategory}>Browse All</a></li>
